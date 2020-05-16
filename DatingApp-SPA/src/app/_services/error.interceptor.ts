@@ -15,16 +15,16 @@ export class ErrorInterCeptor implements HttpInterceptor {
         if (error.status === 401) {
           return throwError(error.statusText);
         }
-        if(error instanceof HttpErrorResponse) {
-            const applicationError = error.headers.get("Application-Error");
-            if(applicationError){
+        if (error instanceof HttpErrorResponse) {
+            const applicationError = error.headers.get('Application-Error');
+            if (applicationError) {
                 return throwError(applicationError);
             }
             const serverError  = error.error;
             let modelStateError = '';
-            if(serverError.errors && typeof serverError.errors === 'object') {
+            if (serverError.errors && typeof serverError.errors === 'object') {
                 for (const key in serverError.errors) {
-                    if(serverError.errors[key]) {
+                    if (serverError.errors[key]) {
                         modelStateError += serverError.errors[key] + '\n';
                     }
                 }
@@ -41,4 +41,4 @@ export const ErrorInterCeptorProvider = {
     provide: HTTP_INTERCEPTORS,
     useClass: ErrorInterCeptor,
     multi: true
-}
+};

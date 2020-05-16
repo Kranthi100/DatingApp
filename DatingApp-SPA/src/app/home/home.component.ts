@@ -12,7 +12,7 @@ registerMode = false;
   values: any;
 
   ngOnInit() {
-    this.getValues();
+    // this.getValues();
   }
   registerToggle() {
    this.registerMode = true;

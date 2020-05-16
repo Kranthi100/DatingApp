@@ -54,7 +54,7 @@ namespace DatingApp.API.Data
                  passwordHash=hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
              }         
         }
-
+    
         public async Task<bool> UserExist(string username)
         {
            if(await _context.Users.AnyAsync(x=>x.UserName==username)) 
