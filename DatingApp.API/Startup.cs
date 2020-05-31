@@ -55,6 +55,7 @@ namespace DatingApp.API
                             ValidateAudience=false
                         };
                     });
+            services.AddScoped<LogUserActivity>();
         }
         // public void ConfigureServices(IServiceCollection services) 
         // => services.AddDbContext<ApplicationDataContext>();
